@@ -13,9 +13,12 @@ st.write(
 
 
 name_on_order = st.text_input('Name on Smoothie')
-st.write('The name on your Smoothie will be:', name_on_order)
+#st.write('The name on your Smoothie will be:', name_on_order)
 
-
+#convert snowpark df to pandas df so we can use the loc function
+pd_df = my_dataframe.to_pandas()
+st.statframe(pd_df)
+st.stop()
 
 cnx = st.connection("snowflake")
 session = cnx.session()
